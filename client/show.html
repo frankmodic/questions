@@ -1,0 +1,19 @@
+<div ng-controller='usersController'>
+	<div class="row">
+		<div class="col-md-12">
+			<a href='#/dashboard'>Home</a> | <a href='#/{{one_question._id}}'>Answer This Question</a> <a class="pull-right" href='#/logout'>Logout</a>
+			<h3>{{ one_question.question }}</h3>
+			<h4>{{ one_question.description }}</h4><hr>
+		</div>
+	</div>
+	<div class='row'>
+		<div class="col-md-8" ng-repeat='question in questions' ng-if='one_question._id == question._id'>
+			<div  ng-repeat="answer in question.answers | orderBy: '-createdAt' ">
+				<h3>{{ answer.name }}</h3>
+				<h4 style="display:inline-block;"><b>Answer:</b> {{ answer.answer }}</h4><br>
+				<h4 style="display:inline-block;"><b>Evidence:</b> {{ answer.evidence }}</h4><br>
+				<h4 style="display:inline-block;"><b>Likes:</b> {{ answer.like }}</h4> <button class="btn btn-success" ng-click='addLike(answer._id)' style="width: 100px;  margin-left: 10px; position: absolute;"><img src="./images/thumbsUp.png" style="width: 35%; text-align: center;"></button><hr>
+			</div>
+		</div>
+	</div>
+</div>

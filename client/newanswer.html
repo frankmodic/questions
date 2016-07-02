@@ -1,0 +1,28 @@
+<div ng-controller='answersController'>
+	<div class='row'>
+		<a href='#/dashboard'>Home</a> | <a href='#/show/{{question._id}}'>Go back to the Question</a> <a class="pull-right" href='#/logout'>Logout</a>
+		<h2>{{ question.question }}</h2>
+		<h3>{{ question.description }}</h3><br>
+	</div>
+	<div class='row'>
+		<form name='answerFrom'  ng-submit='addAnswer()'>
+			<div class="form-group">
+				<label for="answer">Answer:</label>
+				<textarea class="form-control" rows="3" type="text" ng-model='newAnswer.answer' name='answer' ng-minlength='5' placeholder="Insert question..." required></textarea>
+<!-- 				<div ng-messages="answerFrom.desc.$error">
+					<p ng-message="required">Desc cannot be blank!</p>
+				</div> -->
+			</div>
+			<div class="form-group">
+				<label for="evidence">Evidene or Details (Optional):</label>
+				<textarea class="form-control" rows="3" type="text" ng-model='newAnswer.evidence' name='evidence' placeholder="Insert supporting evidence, or details..."></textarea>
+			</div>
+			<div ng-messages='answerFrom.answer.$error'>
+				<p style='color: red' ng-message='minlength'>Answer must be at least 5 characters</p>
+				<p style='color: red'>{{ error }}</p>
+			</div>
+			<button type="submit" class="btn btn-primary pull-right">Answer</button>
+		</form>
+		<a href='#/dashboard'><input class="btn btn-danger" type='submit' value='Cancel'></a>
+	</div>
+</div>

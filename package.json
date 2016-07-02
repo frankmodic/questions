@@ -1,0 +1,10 @@
+{
+  "name": "questions",
+  "description": " application where users can add questions and post answers. Users are also allowed to vote/like the best answer per question. ",
+  "dependencies": {
+    "body-parser": "^1.13.1",
+    "ejs": "1.0.0",
+    "express": "~4.10.0",
+    "mongoose": "^4.1.1"
+  }
+}

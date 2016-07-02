@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="col-md-12" ng-controller='dashboardsController'>
+		<a href='#/dashboard'>Home</a> <a class="pull-right" href='#/logout'>Logout</a>
+		<h3>What up, {{ loggedUser.name }}!</h3>
+		<a href='#/addquestion'>Add Question</a>
+	</div>
+</div>
+<div class="container">
+	<div class="col-md-12" ng-controller='dashboardsController'>
+		<form class="form-inline">
+			<input class="form-control pull-right" type="text" ng-model='filter_question.question' placeholder="Search for questions">
+		</form>
+		<table class="table table-hover">
+			<thead>
+				<th>Question</th>
+				<th>Answers</th>
+				<th>Actions</th>
+			</thead>
+			<tr ng-repeat="question in questions | orderBy: '-createdAt' | filter: filter_question.question">
+				<td>{{ question.question }}</td>
+				<td>{{ question.number }}</td>
+				<td><a href='#/show/{{question._id}}'>Show</a> | <a href='#/{{ question._id }}'>Answer</a></td>
+			</tr>
+		</table>
+	</div>
+</div>
